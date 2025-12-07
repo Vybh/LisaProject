@@ -1,0 +1,62 @@
+# Traffic Sign Classification Configuration
+
+random_state: 42
+
+# Dataset
+dataset:
+  path: "/Users/vybhavreddy/Desktop/db_lisa_tiny"
+  train_size: 0.7
+  val_size: 0.15
+  test_size: 0.15
+
+# Feature Extraction
+features:
+  hog:
+    enabled: true
+    cell_size: 16
+    block_size: 2
+  
+  color_histogram:
+    enabled: true
+    bins: 16
+  
+  bovw:
+    enabled: false
+    n_clusters: 50
+
+# Preprocessing
+preprocessing:
+  scaler_type: "standard"  # or "minmax"
+  random_state: 42
+
+# Model Training
+training:
+  n_splits: 5  # CV folds
+  random_state: 42
+  
+  models:
+    svm:
+      enabled: true
+      kernel: "rbf"
+      C: 1.0
+      gamma: "scale"
+    
+    random_forest:
+      enabled: true
+      n_estimators: 100
+      max_depth: 15
+    
+    knn:
+      enabled: true
+      n_neighbors: 5
+    
+    xgboost:
+      enabled: true
+      n_estimators: 100
+      max_depth: 6
+
+# Evaluation
+evaluation:
+  output_dir: "results"
+  save_models: true
+  models_dir: "models"
