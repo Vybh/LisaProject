@@ -279,7 +279,8 @@ For improvements or bug fixes:
 
 ## Author
 
-[Your Name]
+Vybhav Reddy 
+Tejas Bhat
 
 ## License
 
